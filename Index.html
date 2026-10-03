@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="pt-br"></html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>TecnoFarm store</title>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TecnoFarm</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <span>TecnoFarm</span>
+        </div>
+
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#produtos">Produtos</a>
+            <a href="#categorias">Categorias</a>
+            <a href="#ofertas">Ofertas</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="search-button" onclick="focusSearch()">🔎</button>
+
+            <button class="cart-button" onclick="openCart()">
+                🛒
+                <span id="cartCount">0</span>
+            </button>
+        </div>
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+
+        <div class="hero-content">
+
+            <span class="hero-tag">⚡ PERFORMANCE SEM LIMITES</span>
+
+            <h1>
+                DOMINE O<br>
+                <span>PRÓXIMO NÍVEL</span>
+            </h1>
+
+            <p>
+                Jogos, computadores e periféricos para quem leva
+                sua experiência gamer a sério.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#produtos" class="btn primary">
+                    Comprar agora
+                </a>
+
+                <a href="#categorias" class="btn secondary">
+                    Explorar produtos
+                </a>
+            </div>
+
+        </div>
+
+        <div class="hero-decoration">
+            <div class="circle"></div>
+            <div class="hero-controller">🎮</div>
+        </div>
+
+    </section>
+
+
+    <!-- CATEGORIAS -->
+    <section class="categories" id="categorias">
+
+        <div class="section-title">
+            <span>CATEGORIAS</span>
+            <h2>Encontre seu equipamento</h2>
+        </div>
+
+        <div class="category-grid">
+
+            <div class="category-card" onclick="filterCategory('computador')">
+                <div class="category-icon">🖥️</div>
+                <h3>Computadores</h3>
+                <p>PCs Gamer de alta performance</p>
+            </div>
+
+            <div class="category-card" onclick="filterCategory('periferico')">
+                <div class="category-icon">⌨️</div>
+                <h3>Periféricos</h3>
+                <p>Teclados, mouses e headsets</p>
+            </div>
+
+            <div class="category-card" onclick="filterCategory('jogo')">
+                <div class="category-icon">🎮</div>
+                <h3>Jogos</h3>
+                <p>Os melhores títulos</p>
+            </div>
+
+            <div class="category-card" onclick="filterCategory('monitor')">
+                <div class="category-icon">🖥️</div>
+                <h3>Monitores</h3>
+                <p>Alta taxa de atualização</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUTOS -->
+    <section class="products-section" id="produtos">
+
+        <div class="section-heading">
+
+            <div>
+                <span>LOJA</span>
+                <h2>Produtos em destaque</h2>
+            </div>
+
+            <div class="filters">
+
+                <button class="filter active" onclick="filterProducts('todos', this)">
+                    Todos
+                </button>
+
+                <button class="filter" onclick="filterProducts('computador', this)">
+                    PCs
+                </button>
+
+                <button class="filter" onclick="filterProducts('periferico', this)">
+                    Periféricos
+                </button>
+
+                <button class="filter" onclick="filterProducts('jogo', this)">
+                    Jogos
+                </button>
+
+                <button class="filter" onclick="filterProducts('monitor', this)">
+                    Monitores
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="search-box">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Pesquisar produtos..."
+                oninput="searchProducts()"
+            >
+            <span>🔎</span>
+        </div>
+
+
+        <div class="products-grid" id="productsGrid">
+
+            <!-- PRODUTO 1 -->
+            <article class="product-card"
+                data-category="computador"
+                data-name="PC Gamer RTX 4070">
+
+                <div class="product-image pc">
+                    <span class="badge">OFERTA</span>
+                    🖥️
+                </div>
+
+                <div class="product-info">
+
+                    <span class="product-category">PC GAMER</span>
+
+                    <h3>PC Gamer RTX 4070</h3>
+
+                    <p>
+                        Ryzen 7 • RTX 4070 • 32GB RAM • SSD 1TB
+                    </p>
+
+                    <div class="rating">★★★★★ <small>(128)</small></div>
+
+                    <div class="price">
+                        <del>R$ 9.499,90</del>
+                        <strong>R$ 7.999,90</strong>
+                    </div>
+
+                    <button class="add-cart"
+                        onclick="addToCart('PC Gamer RTX 4070', 7999.90)">
+                        Adicionar ao carrinho
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUTO 2 -->
+            <article class="product-card"
+                data-category="periferico"
+                data-name="Teclado Mecânico RGB">
+
+                <div class="product-image keyboard">
+                    ⌨️
+                </div>
+
+                <div class="product-info">
+
+                    <span class="product-category">TECLADO</span>
+
+                    <h3>Teclado Mecânico RGB</h3>
+
+                    <p>
+                        Switch Red • ABNT2 • RGB Personalizável
+                    </p>
+
+                    <div class="rating">★★★★★ <small>(94)</small></div>
+
+                    <div class="price">
+                        <strong>R$ 349,90</strong>
+                    </div>
+
+                    <button class="add-cart"
+                        onclick="addToCart('Teclado Mecânico RGB', 349.90)">
+                        Adicionar ao carrinho
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUTO 3 -->
+            <article class="product-card"
+                data-category="periferico"
+                data-name="Mouse Gamer Ultra">
+
+                <div class="product-image mouse">
+                    🖱️
+                </div>
+
+                <div class="product-info">
+
+                    <span class="product-category">MOUSE</span>
+
+                    <h3>Mouse Gamer Ultra</h3>
+
+                    <p>
+                        26.000 DPI • Sensor óptico • RGB
+                    </p>
+
+                    <div class="rating">★★★★★ <small>(76)</small></div>
+
+                    <div class="price">
+                        <strong>R$ 289,90</strong>
+                    </div>
+
+                    <button class="add-cart"
+                        onclick="addToCart('Mouse Gamer Ultra', 289.90)">
+                        Adicionar ao carrinho
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUTO 4 -->
+            <article class="product-card"
+                data-category="monitor"
+                data-name="Monitor Gamer 27 180Hz">
+
+                <div class="product-image monitor">
+                    🖥️
+                </div>
+
+                <div class="product-info">
+
+                    <span class="product-category">MONITOR</span>
+
+                    <h3>Monitor Gamer 27" 180Hz</h3>
+
+                    <p>
+                        QHD • 1ms • 180Hz • HDR
+                    </p>
+
+                    <div class="rating">★★★★★ <small>(61)</small></div>
+
+                    <div class="price">
+                        <strong>R$ 1.899,90</strong>
+                    </div>
+
+                    <button class="add-cart"
+                        onclick="addToCart('Monitor Gamer 27 180Hz', 1899.90)">
+                        Adicionar ao carrinho
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUTO 5 -->
+            <article class="product-card"
+                data-category="jogo"
+                data-name="Cyber Adventure">
+
+                <div class="product-image game">
+                    🎮
+                </div>
+
+                <div class="product-info">
+
+                    <span class="product-category">JOGO</span>
+
+                    <h3>Cyber Adventure</h3>
+
+                    <p>
+                        PC • Ação • RPG • Código digital
+                    </p>
+
+                    <div class="rating">★★★★★ <small>(210)</small></div>
+
+                    <div class="price">
+                        <del>R$ 249,90</del>
+                        <strong>R$ 179,90</strong>
+                    </div>
+
+                    <button class="add-cart"
+                        onclick="addToCart('Cyber Adventure', 179.90)">
+                        Adicionar ao carrinho
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUTO 6 -->
+            <article class="product-card"
+                data-category="periferico"
+                data-name="Headset Gamer 7.1">
+
+                <div class="product-image headset">
+                    🎧
+                </div>
+
+                <div class="product-info">
+
+                    <span class="product-category">HEADSET</span>
+
+                    <h3>Headset Gamer 7.1</h3>
+
+                    <p>
+                        Surround 7.1 • Microfone • RGB
+                    </p>
+
+                    <div class="rating">★★★★★ <small>(143)</small></div>
+
+                    <div class="price">
+                        <strong>R$ 459,90</strong>
+                    </div>
+
+                    <button class="add-cart"
+                        onclick="addToCart('Headset Gamer 7.1', 459.90)">
+                        Adicionar ao carrinho
+                    </button>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- OFERTA -->
+    <section class="offer" id="ofertas">
+
+        <div>
+
+            <span>OFERTA ESPECIAL</span>
+
+            <h2>
+                MONTE SEU SETUP<br>
+                DOS SONHOS
+            </h2>
+
+            <p>
+                Até 30% OFF em produtos selecionados.
+            </p>
+
+            <button class="btn primary" onclick="scrollToProducts()">
+                Ver ofertas
+            </button>
+
+        </div>
+
+        <div class="offer-icon">
+            ⚡
+        </div>
+
+    </section>
+
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+
+        <div>
+            <span>FIQUE POR DENTRO</span>
+            <h2>Receba nossas ofertas</h2>
+            <p>
+                Cadastre seu e-mail para receber promoções e novidades.
+            </p>
+        </div>
+
+        <form onsubmit="subscribe(event)">
+            <input
+                type="email"
+                placeholder="Seu melhor e-mail"
+                required
+            >
+
+            <button type="submit">
+                Cadastrar
+            </button>
+        </form>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-logo">
+            <span>GAME</span>TECH
+        </div>
+
+        <p>
+            © 2026 GameTech Store. Todos os direitos reservados.
+        </p>
+
+        <div class="social">
+            <span>Instagram</span>
+            <span>Discord</span>
+            <span>YouTube</span>
+        </div>
+
+    </footer>
+
+
+    <!-- CARRINHO -->
+    <div class="modal" id="cartModal">
+
+        <div class="cart">
+
+            <div class="cart-header">
+                <h2>Seu carrinho</h2>
+
+                <button onclick="closeCart()">✕</button>
+            </div>
+
+            <div id="cartItems"></div>
+
+            <div class="cart-total">
+
+                <span>Total</span>
+
+                <strong id="cartTotal">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+            <button class="checkout" onclick="checkout()">
+                Finalizar compra
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
+        
+
+    
+    
+
+
+
+    
+    
+
+
+
+</body>
+</html>
